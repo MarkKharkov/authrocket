@@ -9,9 +9,6 @@ chai.use(chaiAsPromised)
 var sinon = global.sinon = require('sinon')
 // var nock = global.nock = require('nock')
 
-var Promise = require('es6-promise').Promise
-global.Promise = Promise
-
 // var jsdom = require('jsdom')
 // var doc = jsdom.jsdom('<html><body></body></html>')
 // var win = doc.defaultView

@@ -1,65 +1,88 @@
-import Action from './classes/Action'
+const Action = require ('./classes/Action');
 
-export class Realms extends Action {
+class Realms extends Action {
   constructor (actionData) {
     super('realms', actionData)
   }
 }
-export class Users extends Action {
+
+class Users extends Action {
   constructor (actionData) {
     super('users', actionData)
   }
 }
-export class Credentials extends Action {
+
+class Credentials extends Action {
   constructor (actionData) {
     super('credentials', actionData)
   }
 }
-export class SignupTokens extends Action {
+
+class SignupTokens extends Action {
   constructor (actionData) {
     super('signup_tokens', actionData)
   }
 }
-export class Orgs extends Action {
+
+class Orgs extends Action {
   constructor (actionData) {
     super('orgs', actionData)
   }
 }
-export class Memberships extends Action {
+
+class Memberships extends Action {
   constructor (actionData) {
     super('memberships', actionData)
   }
 }
-export class AuthProviders extends Action {
+
+class AuthProviders extends Action {
   constructor (actionData) {
     super('auth_providers', actionData)
   }
 }
-export class ConnectedApps extends Action {
+
+class ConnectedApps extends Action {
   constructor (actionData) {
     super('login_policies', actionData)
   }
 }
-export class Hooks extends Action {
+
+class Hooks extends Action {
   constructor (actionData) {
     super('app_hooks', actionData)
   }
 }
-export class Sessions extends Action {
+
+class Sessions extends Action {
   constructor (actionData) {
     super('session', actionData)
   }
 }
 
-export class Events extends Action {
+class Events extends Action {
   constructor (actionData) {
     super('events', actionData)
   }
 }
-export class Notifications extends Action {
+
+class Notifications extends Action {
   constructor (actionData) {
     super('notifications', actionData)
   }
 }
 
-export default { Realms, Users, Credentials, SignupTokens, Orgs, Memberships, AuthProviders, ConnectedApps, Hooks, Sessions, Events, Notifications }
+module.exports = {
+  Realms,
+  Users,
+  Credentials,
+  SignupTokens,
+  Orgs,
+  Memberships,
+  AuthProviders,
+  ConnectedApps,
+  Hooks,
+  Sessions,
+  Events,
+  Notifications
+};

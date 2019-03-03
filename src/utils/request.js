@@ -1,5 +1,5 @@
-import config from '../config'
-import rp from 'request-promise'
+const config = require('../config');
+const rp = require('request-promise');
 
 const request = {
   /** Run get request with provided data
@@ -79,31 +79,13 @@ const request = {
   }
 };
 
-export default request
+module.exports = request;
 
 /** Wrap response in promise that has error handling
  * @private
  */
 function handleResponse (options) {
   return rp(options);
-  /*return new Promise((resolve, reject) => {
-    req.end((err, res) => {
-      if (!err) {
-        return resolve(res.body)
-      }
-      if (err.status === 401) {
-        console.warn({description: 'Unauthorized. You must be signed into make this request.', func: 'handleResponse'})
-      }
-      if (err && err.response) {
-        return reject(err.response.text)
-      }
-      if (err && err.errno) {
-        // console.warn({description: 'Does not exist.', error: err, func: 'handleResponse'})
-        return reject(err.errno)
-      }
-      return reject(err)
-    })
-  })*/
 }
 
 

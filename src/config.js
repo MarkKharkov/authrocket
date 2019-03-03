@@ -1,4 +1,4 @@
-import { merge, keys, each, isString } from 'lodash'
+const { merge, keys, each, isString } = require ('lodash');
 
 let defaultConfig = {
   accountId: process.env.AUTHROCKET_ACCOUNT_ID,
@@ -7,10 +7,10 @@ let defaultConfig = {
   jwtSecret: process.env.AUTHROCKET_JWT_SECRET,
   apiUrl: process.env.AUTHROCKET_API_URL || 'https://api-e1.authrocket.com/v1/',
   jsUrl: process.env.AUTHROCKET_JS_URL
-}
+};
 
-let envName = 'prod'
-let configInstance = null // Singleton variable
+let envName = 'prod';
+let configInstance = null; // Singleton variable
 
 class Config {
   constructor () {
@@ -48,17 +48,18 @@ class Config {
     }
   }
 }
-let config = new Config()
 
-export default config
+let config = new Config();
+
+module.exports = config;
 
 function removeTrailingSlash (url) {
   if (!isString(url)) {
     console.error({
       description: 'Slash can only be removed from strings.',
       func: 'removeTrailingSlash', file: 'config'
-    })
-    return url
+    });
+    return url;
   }
-  return url.replace(/\/$/, '')
+  return url.replace(/\/$/, '');
 }

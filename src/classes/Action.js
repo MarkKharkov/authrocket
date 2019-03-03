@@ -1,8 +1,8 @@
-import config from '../config'
-import { has, isString } from 'lodash'
-import request from '../utils/request'
+const config  = require ('../config');
+const { has, isString } = require ('lodash');
+const request = require ('../utils/request');
 
-export default class Action {
+class Action {
   constructor (actionName, actionData, endpoint) {
     this.name = actionName
     this.endpoint = endpoint || this.name
@@ -46,3 +46,5 @@ export default class Action {
     return request.del(this.url, data).then(res => res.error ? Promise.reject(res.error) : res)
   }
 }
+
+module.exports = Action;
