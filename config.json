@@ -2,10 +2,10 @@
 	"distFolder": "dist",
 	"library": {
 		"export": "AuthRocket",
-		"file": "authrocket"
+		"file": "index"
 	},
 	"folders": {
-		"dist": "dist",
+		"dist": "src",
 		"dev": "dev",
 		"docs": "docs"
 	},

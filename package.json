@@ -2,7 +2,7 @@
   "name": "authrocket",
   "version": "0.0.9",
   "description": "Library for interfacing with AuthRocket service.",
-  "main": "dist/authrocket.js",
+  "main": "dist/index.js",
   "jsnext:main": "src/authrocket.js",
   "scripts": {
     "lint": "eslint .",
@@ -13,7 +13,8 @@
     "build:lib": "babel src --out-dir lib",
     "build:umd": "webpack src/index.js dist/authrocket.js --config webpack-development.config.js",
     "build:umd:min": "webpack -p src/index.js dist/authrocket.min.js --config webpack-production.config.js",
-    "build": "npm run clean && npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "build": "babel src -d dist",
+    "build:browser": "npm run clean && npm run build:lib && npm run build:umd && npm run build:umd:min",
     "watch:umd": "npm run build:umd -- --stats --progress --colors --watch",
     "watch:lib": "npm run build:lib -- --stats --progress --colors --watch",
     "watch": "npm run watch:umd",
@@ -35,7 +36,9 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "4.13.1",
-    "superagent": "1.8.1"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "webpack-emit-all-plugin": "^2.0.1"
   },
   "devDependencies": {
     "babel": "^6.5.1",
@@ -52,6 +55,7 @@
     "chai-as-promised": "^5.2.0",
     "es6-promise": "^3.0.2",
     "isparta": "^4.0.0",
+    "json-loader": "^0.5.7",
     "mocha": "^2.4.5",
     "rimraf": "^2.5.1",
     "s3-cli": "^0.13.0",

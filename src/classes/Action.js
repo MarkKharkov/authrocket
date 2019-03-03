@@ -30,8 +30,8 @@ export default class Action {
   /** Get
    * @return {Promise}
    */
-  get () {
-    return request.get(this.url).then(res => res.error ? Promise.reject(res.error) : res)
+  get (data) {
+    return request.get(this.url, data).then(res => res.error ? Promise.reject(res.error) : res)
   }
 
   add (newData) {
@@ -42,7 +42,7 @@ export default class Action {
     return request.put(this.url, updateData).then(res => res.error ? Promise.reject(res.error) : res)
   }
 
-  remove () {
-    return request.del(this.url).then(res => res.error ? Promise.reject(res.error) : res)
+  remove (data) {
+    return request.del(this.url, data).then(res => res.error ? Promise.reject(res.error) : res)
   }
 }
