@@ -19,6 +19,18 @@ NodeJS library for interfacing with [Auth Rocket](https://authrocket.com/).
 
 ### [Docs Page](https://prescottprue.gitbooks.io/authrocket/content/)
 
+## About this package
+First, this is fork of another package `authrocket`, original package can be used without problems 
+only on client-side (in browser), due to XMLHttpRequest dependency. Code changed, to work on server-side. 
+Also some improvements added.
+
+####Changes over original package:
+1. `list` method of all entities added (not supported before).
+2. webpack removed, right now library not compiled to 1 big file with all dependencies, 
+which is better on server-side.
+3. `superagent` package removed, instead of this `request-promise` added, which is powerful on server-side. 
+
+
 ## Getting Started
 1. Install through npm: `npm install --save authrocket`
 2. Import AuthRocket:
@@ -48,6 +60,29 @@ NodeJS library for interfacing with [Auth Rocket](https://authrocket.com/).
 //Create new authrocket instance with authrocket.js URL
 var authrocket = new AuthRocket({jsUrl: 'https://zzzzzzzzz.e1.loginrocket.com/v1/'});
 ```
+
+## Supporting entities
+List of supporting entities: 
+  - `Realms` 
+  - `Users` 
+  - `Credentials` 
+  - `SignupTokens` 
+  - `Orgs` 
+  - `Memberships` 
+  - `AuthProviders` 
+  - `ConnectedApps` 
+  - `Hooks` 
+  - `Sessions` 
+  - `Events` 
+  - `Notifications` 
+
+All this entities has methods:
+  - `list` - return a list of entities
+  - `get` - return a entity
+  - `add` - create a new entity
+  - `update` - update a entity
+  - `remove` - remove a entity
+
 
 ## Configuration
 Config variables can be set when you are creating your AuthRocket instance or through environment variables. Using environment variables is suggested for variables that should be kept private, such as your JWT secret.

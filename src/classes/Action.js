@@ -13,7 +13,7 @@ class Action {
     this.isList = !!actionData
     if (!this.isList) {
       this.actionData = actionData
-      if (isString(actionData)) { // String username provided
+      if (isString(actionData)) { // String id/username provided
         return this.id = this.actionData
       }
       if (has(actionData, 'id') || has(actionData, 'username')) { // Check for object to have id or username
@@ -23,25 +23,56 @@ class Action {
     }
   }
 
-  get url () {
-    return this.isList ? `${config.urls.api}/${this.endpoint}` : `${config.urls.api}/${this.endpoint}/${this.id}`
+  getUrl (includeId=true){
+    return this.isList ?
+      `${config.urls.api}/${this.endpoint}` :
+      `${config.urls.api}/${this.endpoint}/${includeId ? this.id : ''}`
   }
 
-  /** Get
+  get url () {
+    return this.getUrl();
+  }
+
+  /**
+   * Get item
    * @return {Promise}
    */
   get (data) {
     return request.get(this.url, data).then(res => res.error ? Promise.reject(res.error) : res)
   }
 
+  /**
+   * List items.
+   * @param data
+   * @returns {Promise<T | never>}
+   */
+  list (data) {
+    return request.get(this.getUrl(false), data).then(res => res.error ? Promise.reject(res.error) : res)
+  }
+
+  /**
+   * Add item
+   * @param newData
+   * @returns {Promise<T | never>}
+   */
   add (newData) {
     return request.post(this.url, newData).then(res => res.error ? Promise.reject(res.error) : res)
   }
 
+  /**
+   * Update item
+   * @param updateData
+   * @returns {Promise<T | never>}
+   */
   update (updateData) {
     return request.put(this.url, updateData).then(res => res.error ? Promise.reject(res.error) : res)
   }
 
+  /**
+   * Remove item
+   * @param data
+   * @returns {Promise<T | never>}
+   */
   remove (data) {
     return request.del(this.url, data).then(res => res.error ? Promise.reject(res.error) : res)
   }
