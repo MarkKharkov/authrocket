@@ -17,7 +17,9 @@ const request = {
       headers: headers,
       json: true
     };
-    console.log(`Request.js : get \n`, options);
+    if (process && process.env && process.env.AUTHROCKET_VERBOSE) {
+      console.log(`\n\npackage authrocket-node : get request\n`, options, `\n`);
+    }
     return handleResponse(options);
   },
 
@@ -36,7 +38,9 @@ const request = {
       headers: headers,
       json: true
     };
-    console.log(`Request.js : post \n`, options);
+    if (process && process.env && process.env.AUTHROCKET_VERBOSE) {
+      console.log(`\n\npackage authrocket-node : post request\n`, options, `\n`);
+    }
     return handleResponse(options);
   },
 
@@ -55,7 +59,9 @@ const request = {
       headers: headers,
       json: true
     };
-    console.log(`Request.js : put \n`, options);
+    if (process && process.env && process.env.AUTHROCKET_VERBOSE) {
+      console.log(`\n\npackage authrocket-node : put request\n`, options, `\n`);
+    }
     return handleResponse(options);
   },
 
@@ -74,7 +80,9 @@ const request = {
       headers: headers,
       json: true
     };
-    console.log(`Request.js : put \n`, options);
+    if (process && process.env && process.env.AUTHROCKET_VERBOSE) {
+      console.log(`\n\npackage authrocket-node : delete request\n`, options, `\n`);
+    }
     return handleResponse(options);
   }
 };
