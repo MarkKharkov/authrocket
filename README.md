@@ -28,7 +28,8 @@ Also some improvements added.
 1. `list` method of all entities added (not supported before).
 2. webpack removed, right now library not compiled to 1 big file with all dependencies, 
 which is better on server-side.
-3. `superagent` package removed, instead of this `request-promise` added, which is powerful on server-side. 
+3. `superagent` package removed, instead of this `request-promise` added, which is powerful on server-side.
+4. `generatePasswordToken` and `resetPasswordWithToken` methods added to Users
 
 
 ## Getting Started
