@@ -10,16 +10,16 @@ class Action {
   }
 
   init (actionData) {
-    this.isList = !!actionData
-    if (!this.isList) {
-      this.actionData = actionData
+    this.isList = true;
+    if (actionData) {
+      this.actionData = actionData;
       if (isString(actionData)) { // String id/username provided
-        return this.id = this.actionData
+        return this.id = this.actionData;
       }
       if (has(actionData, 'id') || has(actionData, 'username')) { // Check for object to have id or username
-        return this.id = actionData.id ? actionData.id : actionData.username
+        return this.id = actionData.id ? actionData.id : actionData.username;
       }
-      this.isList = false
+      this.isList = false;
     }
   }
 
