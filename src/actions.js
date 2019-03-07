@@ -10,6 +10,16 @@ class Users extends Action {
   constructor (actionData) {
     super('users', actionData)
   }
+
+  generatePasswordToken (newData){
+    return request.post(this.url + '/generate_password_token', newData)
+      .then(res => res.error ? Promise.reject(res.error) : res)
+  }
+
+  resetPasswordWithToken(newData){
+    return request.post(this.url + '/reset_password_with_token', newData)
+      .then(res => res.error ? Promise.reject(res.error) : res)
+  }
 }
 
 class Credentials extends Action {
