@@ -26,7 +26,7 @@ class Action {
   getUrl (includeId=true){
     return this.isList ?
       `${config.urls.api}/${this.endpoint}` :
-      `${config.urls.api}/${this.endpoint}/${includeId ? this.id : ''}`
+      `${config.urls.api}/${this.endpoint}/${includeId ? (this.id ? this.id : '') : ''}`
   }
 
   get url () {
