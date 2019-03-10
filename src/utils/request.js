@@ -78,7 +78,7 @@ const request = {
       uri: endpoint,
       body: data,
       headers: headers,
-      json: true
+      json: false
     };
     if (process && process.env && process.env.AUTHROCKET_VERBOSE) {
       console.log(`\n\npackage authrocket-node : delete request\n`, options, `\n`);
