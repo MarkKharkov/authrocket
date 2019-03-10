@@ -4,6 +4,11 @@ class Realms extends Action {
   constructor (actionData) {
     super('realms', actionData)
   }
+
+  reset (resetOptions){
+    return this.request.post(this.url + '/reset', resetOptions)
+        .then(res => res.error ? Promise.reject(res.error) : res)
+  }
 }
 
 class Users extends Action {
@@ -12,12 +17,12 @@ class Users extends Action {
   }
 
   generatePasswordToken (newData){
-    return request.post(this.url + '/generate_password_token', newData)
+    return this.request.post(this.url + '/generate_password_token', newData)
       .then(res => res.error ? Promise.reject(res.error) : res)
   }
 
   resetPasswordWithToken(newData){
-    return request.post(this.url + '/reset_password_with_token', newData)
+    return this.request.post(this.url + '/reset_password_with_token', newData)
       .then(res => res.error ? Promise.reject(res.error) : res)
   }
 }

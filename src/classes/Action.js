@@ -4,8 +4,9 @@ const request = require ('../utils/request');
 
 class Action {
   constructor (actionName, actionData, endpoint) {
-    this.name = actionName
-    this.endpoint = endpoint || this.name
+    this.name = actionName;
+    this.endpoint = endpoint || this.name;
+    this.request = request;
     this.init(actionData)
   }
 

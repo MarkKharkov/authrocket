@@ -30,6 +30,7 @@ Also some improvements added.
 which is better on server-side.
 3. `superagent` package removed, instead of this `request-promise` added, which is powerful on server-side.
 4. `generatePasswordToken` and `resetPasswordWithToken` methods added to Users
+5. `reset` method added to Realms
 
 
 ## Getting Started
