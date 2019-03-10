@@ -76,7 +76,6 @@ const request = {
     let options = {
       method: 'DELETE',
       uri: endpoint,
-      body: data,
       headers: headers,
       json: false
     };
@@ -92,8 +91,13 @@ module.exports = request;
 /** Wrap response in promise that has error handling
  * @private
  */
-function handleResponse (options) {
-  return rp(options);
+async function handleResponse (options) {
+  try {
+    return await rp(options);
+  }
+  catch(err){
+    return err;
+  }
 }
 
 
