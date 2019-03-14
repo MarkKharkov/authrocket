@@ -129,4 +129,12 @@ describe('AuthRocket', () => {
       expect(authrocket.Notifications()).to.be.an.object
     )
   })
+  describe('JwtKeys method', () => {
+    it('exists', () => {
+      expect(authrocket).to.respondTo('JwtKeys')
+    })
+    it('returns an object', () =>
+      expect(authrocket.JwtKeys()).to.be.an.object
+    )
+  })
 })

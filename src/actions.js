@@ -87,6 +87,20 @@ class Notifications extends Action {
   }
 }
 
+class JwtKeys extends Action {
+  constructor (actionData) {
+    super('jwt_keys', actionData)
+  }
+
+  /**
+   * Throws a error, because jwt_keys don't have a update endpoint.
+   * @param updateData
+   */
+  update (updateData) {
+    throw new Error('jwt_keys don\'t have a update endpoint!');
+  }
+}
+
 module.exports = {
   Realms,
   Users,
@@ -99,5 +113,6 @@ module.exports = {
   Hooks,
   Sessions,
   Events,
-  Notifications
+  Notifications,
+  JwtKeys
 };

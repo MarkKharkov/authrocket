@@ -31,6 +31,7 @@ which is better on server-side.
 3. `superagent` package removed, instead of this `request-promise` added, which is powerful on server-side.
 4. `generatePasswordToken` and `resetPasswordWithToken` methods added to Users
 5. `reset` method added to Realms
+6. `JwtKeys` APIs added.
 
 
 ## Getting Started
@@ -77,6 +78,7 @@ List of supporting entities:
   - `Sessions` 
   - `Events` 
   - `Notifications` 
+  - `JwtKeys` 
 
 All this entities has methods:
   - `list` - return a list of entities
