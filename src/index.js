@@ -107,6 +107,10 @@ class AuthRocket {
   Notifications(actionData) {
     return new Actions.Notifications(actionData);
   }
+
+  JwtKeys(actionData) {
+    return new Actions.JwtKeys(actionData);
+  }
 }
 
 module.exports = AuthRocket;
