@@ -71,7 +71,7 @@ class Hooks extends Action {
 
 class Sessions extends Action {
   constructor (actionData) {
-    super('session', actionData)
+    super('sessions', actionData)
   }
 
   /**

@@ -32,6 +32,7 @@ which is better on server-side.
 4. `generatePasswordToken` and `resetPasswordWithToken` methods added to Users
 5. `reset` method added to Realms
 6. `JwtKeys` APIs added.
+7. Bug with `Sessions` url fixed
 
 
 ## Getting Started
