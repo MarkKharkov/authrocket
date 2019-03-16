@@ -25,6 +25,16 @@ class Users extends Action {
     return this.request.post(this.url + '/reset_password_with_token', newData)
       .then(res => res.error ? Promise.reject(res.error) : res)
   }
+
+  authenticateByPassword(loginData){
+    return this.request.post(`${this.url}/authenticate`, loginData)
+      .then(res => res.error ? Promise.reject(res.error) : res)
+  }
+
+  authenticateByToken(loginData){
+    return this.request.post(`${this.url}/authenticate_key`, loginData)
+      .then(res => res.error ? Promise.reject(res.error) : res)
+  }
 }
 
 class Credentials extends Action {

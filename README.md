@@ -33,6 +33,7 @@ which is better on server-side.
 5. `reset` method added to Realms
 6. `JwtKeys` APIs added.
 7. Bug with `Sessions` url fixed
+8. Server-side authentication (without LoginRocket) by password and by token added
 
 
 ## Getting Started
