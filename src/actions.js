@@ -73,6 +73,14 @@ class Sessions extends Action {
   constructor (actionData) {
     super('session', actionData)
   }
+
+  /**
+   * Throws a error, because sessions don't have a update endpoint.
+   * @param updateData
+   */
+  update (updateData) {
+    throw new Error('jwt_keys don\'t have a update endpoint!');
+  }
 }
 
 class Events extends Action {
